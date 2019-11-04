@@ -1,0 +1,23 @@
+---
+aws_access_key: "{{ lookup('env','AWS_ACCESS_KEY')| default('XXXXX', true)  }}"
+aws_secret_key: "{{ lookup('env','AWS_SECRET_KEY')| default('XXXX', true) }}"
+instance_name: "{{ lookup('env','INSTANCE_NAME') | default('rds-test', true) }}"
+backup_retention: "{{ lookup('env','BACKUP_RETENTION') | default(0, true) }}"
+db_engine: "{{ lookup('env','DB_ENGINE') | default('postgres', true) }}"
+db_name: "{{ lookup('env','DB_NAME') | default('portaldb', true) }}"
+db_password: "{{ lookup('env','DB_PASS') | default('database$1234', true) }}"
+db_size: "{{ lookup('env','DB_SIZE') | default(10, true) }}"
+db_username: "{{ lookup('env','DB_USERNAME') | default('portaluser', true) }}"
+engine_version: "{{ lookup('env','ENGINE_VERSION') | default(9.6.1, true) }}"
+maintenance_window: "{{ lookup('env','MAINT_WINDOW') | default('Mon:22:00-Mon:23:15', true) }}"
+instance_type: "{{ lookup('env','INSTANCE_TYPE') | default('db.t2.medium', true) }}"
+namespace: "{{ lookup('env','NAMESPACE') | default('default', true) }}"
+rds_port: "{{ lookup('env','PORT') | default(5432, true) }}"
+region: "{{ lookup('env','REGION') | default('us-east-1', true)  }}"
+vpc: "{{ lookup('env','VPC') | default('vpc-08ee1d308701111c1', true) }}"
+subnet: "{{ lookup('env','SUBNET') | default('default-vpc-08ee1d308701111c1', true) }}"
+vpc_security_groups: ""
+rds_action: "provision"
+## TAGS:
+env: "{{ lookup('env','ENV') | default('rds', true) }}"
+
